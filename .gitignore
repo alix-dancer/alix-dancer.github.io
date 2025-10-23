@@ -1,5 +1,2 @@
 /node_modules/
-/public/
-
-# Do not commut generated Code
-src/assets/css/
+/dist/

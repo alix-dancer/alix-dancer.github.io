@@ -3,20 +3,15 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "build": "sass src/assets/sass:assets/css --style=compressed",
-        "watch": "sass --watch src/assets/sass:assets/css --style=expanded",
-        "package:css": "sass src/assets/sass:public/assets/css --style=compressed",
-        "package:js": "esbuild src/assets/js/all.js --bundle --minify --outfile=public/assets/js/all.js",
-        "package:assets": "cp -r src/images public/images && cp -r src/assets/js/lib public/assets/js/lib && cp -r src/index.html public/index.html && cp -r src/robots.txt public/robots.txt && cp -r src/sitemap.xml public/sitemap.xml",
-        "package": "pnpm run package:css && pnpm run package:js && pnpm run package:assets",
-        "clean": "rm -rf public/"
+        "build": "vite build",
+        "dev": "vite"
     },
     "keywords": [],
     "author": "Toni Van de Voorde",
     "license": "MIT",
     "packageManager": "pnpm@10.18.1",
     "devDependencies": {
-        "esbuild": "^0.25.11",
-        "sass": "1.93.2"
+        "sass": "1.93.2",
+        "vite": "7.1.11"
     }
 }

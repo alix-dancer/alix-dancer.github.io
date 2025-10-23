@@ -20,7 +20,7 @@
         emailjs.sendForm('service_32jfjod', 'template_rkyt10l', this)
             .then(() => {
                 $form[0].reset();
-                $success.fadeIn(400).delay(4000).fadeOut(600); // fade out automatically after 4s
+                $success.fadeIn(400).delay(4000).fadeOut(600);
             })
             .catch((err) => {
                 console.error('FAILED...', err);
