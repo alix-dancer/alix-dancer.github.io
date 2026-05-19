@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 ///
 /// Paradigm Shift by HTML5 UP
 /// html5up.net | @ajlkn
@@ -87,11 +89,11 @@
 			color: _palette(fg-bold) !important;
 
 			&:hover {
-				background-color: saturate(lighten(_palette(accent), 15), 10);
+				background-color: color.adjust(_palette(accent), $lightness: 15%, $saturation: 10%);
 			}
 
 			&:active {
-				background-color: desaturate(darken(_palette(accent), 3), 10);
+				background-color: color.adjust(_palette(accent), $lightness: -3%, $saturation: -10%);
 			}
 		}
 

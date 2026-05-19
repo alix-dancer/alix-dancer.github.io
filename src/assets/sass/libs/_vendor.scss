@@ -270,7 +270,9 @@
 		@else {
 
 			$result: ();
-			$index: if($index < 0, length($list) + $index + 1, $index);
+		@if $index < 0 {
+			$index: length($list) + $index + 1;
+		}
 
 			@for $i from 1 through length($list) {
 
@@ -362,7 +364,7 @@
 			}
 
 		// Expand just the value?
-			@elseif $expandValue {
+			@else if $expandValue {
 			    @each $vendor in $vendor-prefixes {
 			        #{$property}: #{str-replace-all($value, '-prefix-', $vendor)};
 			    }
