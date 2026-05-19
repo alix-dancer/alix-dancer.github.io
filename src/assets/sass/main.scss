@@ -4,7 +4,7 @@
 @import 'libs/vendor';
 @import 'libs/breakpoints';
 @import 'libs/html-grid';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,700,300i,600i,700i|Raleway:600,800');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&family=Raleway:wght@600;800&display=swap');
 
 /*
 	Paradigm Shift by HTML5 UP
@@ -46,6 +46,7 @@
 	@import 'components/gallery';
 	@import 'components/feature-icons';
 	//@import 'components/contact';
+	@import 'components/enhancements';
 
 // Layout.
 

@@ -1,0 +1,99 @@
+///
+/// Enhancements: scroll-reveal animations & side navigation.
+///
+
+/* Scroll Reveal ─────────────────────────────────────────────────────────── */
+
+.reveal {
+	opacity: 0;
+	transform: translateY(1.75rem);
+	transition:
+		opacity   0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+	&.is-revealed {
+		opacity: 1;
+		transform: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+	}
+}
+
+/* Side Navigation ───────────────────────────────────────────────────────── */
+
+#side-nav {
+	position: fixed;
+	right: 1.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: _misc(z-index-base);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.8rem;
+
+	a {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		text-decoration: none;
+		border-bottom: 0;
+
+		// Section label tooltip (appears to the left of the dot on hover/focus).
+		&::before {
+			content: attr(data-label);
+			font-family: _font(family-heading);
+			font-size: 0.6rem;
+			font-weight: _font(weight-heading);
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: _palette(fg);
+			white-space: nowrap;
+			opacity: 0;
+			transform: translateX(0.4rem);
+			transition:
+				opacity   0.2s ease,
+				transform 0.2s ease;
+			pointer-events: none;
+		}
+
+		&:hover::before,
+		&:focus-visible::before {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+		// Dot indicator.
+		span {
+			display: block;
+			flex-shrink: 0;
+			width: 0.5rem;
+			height: 0.5rem;
+			border-radius: 50%;
+			border: 2px solid _palette(accent);
+			background: transparent;
+			transition:
+				background   _duration(transition) ease,
+				transform    _duration(transition) ease,
+				box-shadow   _duration(transition) ease;
+		}
+
+		&.is-active span {
+			background: _palette(accent);
+			box-shadow: 0 0 0.5rem _palette(accent-bg);
+		}
+
+		&:hover span,
+		&:focus-visible span {
+			transform: scale(1.3);
+		}
+	}
+
+	@include breakpoint('<=medium') {
+		display: none;
+	}
+}
